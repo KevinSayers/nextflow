@@ -13,7 +13,21 @@ Nextflow has different command line arguments that can be used to modify the exe
 Nextflow Docker
 --------------
 
-Nextflow can be launched using a provided Docker container. This container has been modified to allow additional sibling containers to be launched from within the Nextflow container. Nextflow can be run in this manner using the `-d` option::
+Nextflow can be launched using a provided Docker container. This container has been modified to allow additional sibling containers to be launched from within the Nextflow container. Running Nextflow in this manner::
 
     nextflow -d run main.nf
 
+Nextflow log
+--------------
+
+The logs from previous Nextflow runs can be 
+
+Listing the available fields that can be accessed from the log::
+    
+    nextflow log <run_name> -l
+
+Listing the values for specified fields::
+    nextflow log golden_poitras -f process,container,status
+
+You can specify a seperator for the outputs, such as using a comma here::
+    nextflow log berserk_euler -f process,container -s ,
