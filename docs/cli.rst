@@ -43,9 +43,12 @@ You can specify either a string or file template to be used with the log this al
     nextflow log fervent_stone -t 'container: $container\nprocess: $process'
 
 or saved in a file ``template.md``::
- 
+
     process: $process
     container: $container
 
+the template file can then by specified::
+    
+    nextflow log fervent_stone -t template.md
 
 
