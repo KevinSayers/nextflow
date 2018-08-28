@@ -33,3 +33,16 @@ Listing the values for specified fields::
 You can specify a seperator for the outputs, such as using a comma here::
 
     nextflow log berserk_euler -f process,container -s ,
+
+You can filter the results based on any of the fields with a expression::
+    nextflow log fervent_stone -f 'container,process' -F 'container == "ubuntu"'
+
+You can specify either a string or file template to be used with the log this allows more clear formatting of your log outputs::
+    nextflow log fervent_stone -t 'container: $container\nprocess: $process'
+
+or saved in a file ``template.md``: 
+    process: $process
+    container: $container
+
+
+
