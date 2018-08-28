@@ -20,7 +20,10 @@ Nextflow can be launched using a provided Docker container. This container has b
 Nextflow log
 --------------
 
-The logs from previous Nextflow runs can be 
+The logs from previous Nextflow runs can be viewed using::
+    nextflow log
+
+
 
 Listing the available fields that can be accessed from the log::
     
@@ -37,6 +40,10 @@ You can specify a seperator for the outputs, such as using a comma here::
 You can filter the results based on any of the fields with a expression::
 
     nextflow log fervent_stone -f 'container,process' -F 'container == "ubuntu"'
+
+The filter can also include regular expressions::
+
+    nextflow log last -f "process,container" -F 'process =~ /bar.*/ && container =~ /biocontainers.*/'
 
 You can specify either a string or file template to be used with the log this allows more clear formatting of your log outputs::
 
