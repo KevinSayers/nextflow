@@ -27,7 +27,9 @@ Listing the available fields that can be accessed from the log::
     nextflow log <run_name> -l
 
 Listing the values for specified fields::
+
     nextflow log golden_poitras -f process,container,status
 
 You can specify a seperator for the outputs, such as using a comma here::
+
     nextflow log berserk_euler -f process,container -s ,
