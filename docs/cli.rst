@@ -21,8 +21,13 @@ Nextflow log
 --------------
 
 The logs from previous Nextflow runs can be viewed using::
+
     nextflow log
 
+You can specify a run name or use the special name ``last``::
+
+    nextflow log last
+    
 
 
 Listing the available fields that can be accessed from the log::
