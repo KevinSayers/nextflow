@@ -26,7 +26,7 @@ of a S3 file can be printed as shown below::
 
 See section :ref:`script-file-io` to learn more about available file operations.
 
-
+.. note:: The use of wildcards requires a base directory within a bucket to work. ``s3://my-bucket/*.fa`` will not work, but ``s3://my-bucket/data/*.fa`` will. 
 
 
 Security credentials
