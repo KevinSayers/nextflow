@@ -7,7 +7,8 @@ Singularity containers
 `Singularity <http://singularity.lbl.gov/>`_ is a container engine alternative to Docker. The main advantages
 of Singularity is that it can be used with unprivileged permissions and doesn't require a separate daemon process.
 These, along other features, like for example the support for autofs mounts, makes Singularity a container engine
-better suited the requirements of HPC workloads.
+better suited the requirements of HPC workloads. Singularity is able to use existing Docker images, and pull from Docker
+registries.
 
 Nextflow provides built-in support for Singularity. This allows you to precisely control the execution environment
 of the processes in your pipeline by running them in isolated containers along all their dependencies.
@@ -28,10 +29,6 @@ Images
 
 Singularity makes use of a container image file, which physically contains the container. Refer to the `Singularity
 documentation <http://singularity.lbl.gov/user-guide>`_ to learn how create Singularity images.
-
-Docker images can automatically be converted to Singularity images by using the
-`docker2singularity <https://github.com/singularityware/docker2singularity>`_ tool.
-
 
 Singularity allows paths that do not currently exist within the container to be created
 and mounted dynamically by specifying them on the command line. However this feature is only supported on hosts
@@ -142,7 +139,7 @@ Nextflow version 18.10 introduced support for the `Singularity Libary <https://c
    
    process.container = 'library://library/default/alpine:3.8'
   
-  
+
 .. note:: This feature requires the availability of the ``singularity`` tool in the computer
   where the workflow execution is launched (other than the computing nodes).
 
