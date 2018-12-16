@@ -87,6 +87,41 @@ class PodSpecBuilderTest extends Specification {
         ]
     }
 
+    def 'should set node' () {
+
+        when:
+        def spec = new PodSpecBuilder()
+                .withPodName('foo')
+                .withImageName('busybox')
+                .withWorkDir('/some/work/dir')
+                .withCommand(['sh', '-c', 'echo hello'])
+                .withNamespace('xyz')
+                .withLabel('app','myApp')
+                .withNode('cloud.google.com/gke-nodepool: highmemory-pool')
+                .withLabel('runName','something')
+                .build()
+
+        then:
+        spec ==  [ apiVersion: 'v1',
+                   kind: 'Pod',
+                   metadata: [name:'foo', namespace:'xyz', labels:[app: 'myApp', runName: 'something']],
+                   spec: [
+                           restartPolicy:'Never',
+                           containers:[
+                                   [name:'foo',
+                                    image:'busybox',
+                                    command: ['sh', '-c', 'echo hello'],
+                                    workingDir:'/some/work/dir'
+                                   ]
+                           ],
+                           nodeSelector: [
+                                   'cloud.google.com/gke-nodepool: highmemory-pool'
+                           ]
+                   ]
+        ]
+
+    }
+
     def 'should set resources and env' () {
 
         when:

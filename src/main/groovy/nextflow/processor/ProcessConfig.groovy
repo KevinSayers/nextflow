@@ -96,7 +96,8 @@ class ProcessConfig implements Map<String,Object> {
             'stdin',
             'stdout',
             'stageInMode',
-            'stageOutMode'
+            'stageOutMode',
+            'node'
     ]
 
     /**

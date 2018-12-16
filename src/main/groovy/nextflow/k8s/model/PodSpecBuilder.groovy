@@ -47,6 +47,8 @@ class PodSpecBuilder {
 
     String namespace
 
+    String node
+
     String restart
 
     List<PodEnv> envVars = []
@@ -135,6 +137,10 @@ class PodSpecBuilder {
 
     PodSpecBuilder withLabel( String name, String value ) {
         this.labels.put(name, value)
+        return this
+    }
+    PodSpecBuilder withNode( String node){
+        this.node = node
         return this
     }
 
@@ -254,6 +260,8 @@ class PodSpecBuilder {
                 image: this.imageName,
                 command: this.command
         ]
+
+        final nodeSelector = this.node
         
         if( this.workDir )
             container.put('workingDir', workDir)
@@ -265,6 +273,10 @@ class PodSpecBuilder {
                 restartPolicy: restart,
                 containers: [ container ],
         ]
+
+        if( this.node )
+            spec.put('nodeSelector', [ nodeSelector ])
+
 
         if( this.serviceAccount )
             spec.serviceAccountName = this.serviceAccount
