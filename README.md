@@ -1,4 +1,4 @@
-Nextflow
+![Nextflow logo](https://raw.githubusercontent.com/nextflow-io/trademark/master/nextflow2014_logo_large.png)
 ========
 
 *"Dataflow variables are spectacularly expressive in concurrent programming"*
@@ -17,12 +17,12 @@ of complex tools or low-level APIs.
 Nextflow framework is based on the *dataflow* programming model, which greatly simplifies writing parallel and distributed pipelines
 without adding unnecessary complexity and letting you concentrate on the flow of data, i.e. the functional logic of the application/algorithm.
 
-It doesn't aim to be another pipeline scripting language yet, but it is built around the idea that the Linux platform 
-is the *lingua franca* of data science, since it provides many simple command line and scripting tools, which by themselves 
-are powerful, but when chained together facilitate complex data manipulations. 
+It doesn't aim to be another pipeline scripting language yet, but it is built around the idea that the Linux platform
+is the *lingua franca* of data science, since it provides many simple command line and scripting tools, which by themselves
+are powerful, but when chained together facilitate complex data manipulations.
 
-In practice, this means that a Nextflow script is defined by composing  many different processes. 
-Each process can be written in any scripting language that can be executed by the Linux platform (BASH, Perl, Ruby, Python, etc), 
+In practice, this means that a Nextflow script is defined by composing  many different processes.
+Each process can be written in any scripting language that can be executed by the Linux platform (BASH, Perl, Ruby, Python, etc),
 to which is added the ability to coordinate and synchronize the processes execution by simply specifying their inputs and outputs.   
 
 Quick start
@@ -140,12 +140,12 @@ process pyStuff {
 Cluster Resource Managers support
 ---------------------------------
 
-*Nextflow* provides an abstraction between the pipeline functional logic and the underlying processing system. 
+*Nextflow* provides an abstraction between the pipeline functional logic and the underlying processing system.
 Thus it is possible to write your pipeline once and have it running on your computer or a cluster resource
-manager without modifying it. 
+manager without modifying it.
 
-Currently the following clusters are supported: 
-  
+Currently the following clusters are supported:
+
   + Open Grid Engine (SGE)
   + Univa Grid Engine
   + IBM Platform LSF
@@ -157,7 +157,7 @@ Currently the following clusters are supported:
 By default processes are parallelized by spanning multiple threads in the machine where the pipeline is launched.
 
 To submit the execution to a SGE cluster create a file named `nextflow.config`, in the directory
-where the pipeline is going to be launched, with the following content: 
+where the pipeline is going to be launched, with the following content:
 
 ```nextflow
 process {
@@ -166,11 +166,11 @@ process {
 }
 ```
 
-In doing that, processes will be executed as SGE jobs by using the `qsub` command, and so your pipeline will behave like any 
-other SGE job script, with the benefit that *Nextflow* will automatically and transparently manage the processes 
+In doing that, processes will be executed as SGE jobs by using the `qsub` command, and so your pipeline will behave like any
+other SGE job script, with the benefit that *Nextflow* will automatically and transparently manage the processes
 synchronisation, file(s) staging/un-staging, etc.  
 
-Alternatively the same declaration can be defined in the file `$HOME/.nextflow/config`, which is supposed to hold 
+Alternatively the same declaration can be defined in the file `$HOME/.nextflow/config`, which is supposed to hold
 the global *Nextflow* configuration.
 
 Cloud support
@@ -179,14 +179,14 @@ Cloud support
 Nextflow provides out of the box support for the Amazon AWS cloud allowing you to setup a computing cluster,
 deploy it and run your pipeline in the AWS infrastructure in a few commands.
 
-The cloud configuration settings need to be specified in the `nextflow.config` file as shown below: 
+The cloud configuration settings need to be specified in the `nextflow.config` file as shown below:
 
     cloud {
           imageId = 'ami-43f49030'
           instanceType = 't2.micro'
           subnetId = 'subnet-05222a43'
           sharedStorageId = 'fs-1803efd1'
-          spotPrice = 0.04 
+          spotPrice = 0.04
     }
 
     aws {
@@ -194,27 +194,27 @@ The cloud configuration settings need to be specified in the `nextflow.config` f
         secretKey = 'yyy'
         region = 'eu-west-1'
     }
-    
-    
-Replace the settings in the above example with values of your choice. The attribute `sharedStorageId` is optional, 
-when provided the [Amazon EFS](https://aws.amazon.com/efs/) file system is automatically mounted in the configured 
-cloud environment. The `spotPrice` attribute allows you to use [EC2 Spot instances](https://aws.amazon.com/ec2/spot/) 
-in place of regular on-request instances, bidding for the specified price.
- 
-The settings in the `aws` block can be omitted, in that case Nextflow will use the AWS credentials defined in 
-your environment, using the standard AWS variables and configuration files. 
 
-Once defined the configuration of your cloud environment, run the following command in the folder where the file 
-`nextflow.config` was created: 
+
+Replace the settings in the above example with values of your choice. The attribute `sharedStorageId` is optional,
+when provided the [Amazon EFS](https://aws.amazon.com/efs/) file system is automatically mounted in the configured
+cloud environment. The `spotPrice` attribute allows you to use [EC2 Spot instances](https://aws.amazon.com/ec2/spot/)
+in place of regular on-request instances, bidding for the specified price.
+
+The settings in the `aws` block can be omitted, in that case Nextflow will use the AWS credentials defined in
+your environment, using the standard AWS variables and configuration files.
+
+Once defined the configuration of your cloud environment, run the following command in the folder where the file
+`nextflow.config` was created:
 
     nextflow cloud create my-cluster -c <num-of-nodes>
-    
-The string `my-cluster` identifies the cluster instance. Replace it with a name of your choice. 
+
+The string `my-cluster` identifies the cluster instance. Replace it with a name of your choice.
 Finally replace `num-of-nodes` with the actual number of instances that will made-up the cluster.
 WARNING: you will be charged accordingly the type and the number of instances chosen.
 
-Once the cluster deployment completes, SSH in the master node following the instruction that will be printed. Then 
-you will be able to run your Nextflow pipeline as usual. 
+Once the cluster deployment completes, SSH in the master node following the instruction that will be printed. Then
+you will be able to run your Nextflow pipeline as usual.
 
 
 Required dependencies
@@ -230,8 +230,8 @@ Build from source
 ready-to-run, package is available at the [Github releases page](https://github.com/nextflow-io/nextflow/releases),
 thus it is not necessary to compile it in order to use it.
 
-If you are interested in modifying the source code, or contributing to the project, it worth knowing that 
-the build process is based on the [Gradle](http://www.gradle.org/) build automation system. 
+If you are interested in modifying the source code, or contributing to the project, it worth knowing that
+the build process is based on the [Gradle](http://www.gradle.org/) build automation system.
 
 You can compile *Nextflow* by typing the following command in the project home directory on your computer:
 
@@ -239,7 +239,7 @@ You can compile *Nextflow* by typing the following command in the project home d
 make compile
 ```
 
-The very first time you run it, it will automatically download all the libraries required by the build process. 
+The very first time you run it, it will automatically download all the libraries required by the build process.
 It may take some minutes to complete.
 
 When complete, execute the program by using the `launch.sh` script in the project directory.
@@ -250,20 +250,20 @@ The self-contained runnable Nextflow packages can be created by using the follow
 make pack
 ```
 
-In order to install the compiled packages use the following command: 
+In order to install the compiled packages use the following command:
 
 ```bash
 make install
 ```
 
-Then you will be able to run nextflow using the `nextflow` launcher script in the project root folder. 
+Then you will be able to run nextflow using the `nextflow` launcher script in the project root folder.
 
-Known compilation problems 
+Known compilation problems
 ---------------------------
 
 Nextflow required JDK 8 to be compiled. The Java compiler used by the build process can be choose by setting the
-`JAVA_HOME` environment variable accordingly. 
- 
+`JAVA_HOME` environment variable accordingly.
+
 
 If the compilation stops reporting the error: `java.lang.VerifyError: Bad <init> method call from inside of a branch`,
 this is due to a bug affecting the following Java JDK:
@@ -306,7 +306,7 @@ Documentation
 
 Nextflow documentation is available at this link http://docs.nextflow.io
 
-Contributing 
+Contributing
 ------------
 
 Project contribution are more than welcome. See the [CONTRIBUTING](CONTRIBUTING.md) file for details.
@@ -318,7 +318,7 @@ You can post questions, or report problems by using the Nextflow [discussion for
 or the [Nextflow channel on Gitter](https://gitter.im/nextflow-io/nextflow).
 
 
-Build servers 
+Build servers
 --------------
 
   * [Travis-CI](https://travis-ci.org/nextflow-io/nextflow)
@@ -332,9 +332,9 @@ The *Nextflow* framework is released under the Apache 2.0 license.
 Citations
 ----------
 
-If you use Nextflow for research purpose, please cite: 
+If you use Nextflow for research purpose, please cite:
 
-P. Di Tommaso, et al. Nextflow enables reproducible computational workflows. Nature Biotechnology 35, 316–319 (2017) doi:[10.1038/nbt.3820](http://www.nature.com/nbt/journal/v35/n4/full/nbt.3820.html) 
+P. Di Tommaso, et al. Nextflow enables reproducible computational workflows. Nature Biotechnology 35, 316–319 (2017) doi:[10.1038/nbt.3820](http://www.nature.com/nbt/journal/v35/n4/full/nbt.3820.html)
 
 Credits
 -------
@@ -344,4 +344,3 @@ and <a href='http://www.gpars.org/' target='_blank'>Gpars</a>.
 
 YourKit is kindly supporting this open source project with its full-featured Java Profiler.
 Read more http://www.yourkit.com
-
