@@ -683,9 +683,6 @@ class NameGenerator {
             // Frances Spence - one of the original programmers of the ENIAC. https://en.wikipedia.org/wiki/ENIAC - https://en.wikipedia.org/wiki/Frances_Spence
             "spence",
 
-            // Richard Matthew Stallman - the founder of the Free Software movement, the GNU project, the Free Software Foundation, and the League for Programming Freedom. He also invented the concept of copyleft to protect the ideals of this movement, and enshrined this concept in the widely-used GPL (General Public License) for software. https://en.wikiquote.org/wiki/Richard_Stallman
-            "stallman",
-
             // Arthur Harold Stone is credited with the discovery of the first flexagon. https://en.wikipedia.org/wiki/Arthur_Harold_Stone
             "stone",
 
